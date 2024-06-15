@@ -15,8 +15,11 @@ class Conta {
         console.log(`Titular: ${this.titular}`);
         console.log(`Número: ${this.numero}`);
     }
-    saldo() {
+    get saldo() {
         return this.saldoconta;
+    }
+    set saldo(saldoconta) {
+        this.saldoconta = saldoconta;
     }
     deposito(valor) {
         if (valor < 0) {
@@ -105,4 +108,5 @@ cont1.info();
 cont2.info();
 cont2.deposito(1500);
 cont1.saque(300);
-console.log(cont1.saldo());
+cont1.saldo = 233;
+console.log(cont1.saldo);

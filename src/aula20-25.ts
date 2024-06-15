@@ -18,8 +18,12 @@ class Conta{
         console.log(`Número: ${this.numero}`);
     }
 
-    public saldo():number{
+    private get saldo():number{
         return this.saldoconta;
+    }
+
+    private set saldo(saldoconta:number){
+        this.saldoconta = saldoconta;
     }
 
     protected deposito(valor:number){
@@ -110,4 +114,5 @@ cont1.info();
 cont2.info();
 cont2.deposito(1500);
 cont1.saque(300);
-console.log(cont1.saldo());
+cont1.saldo = 233;
+console.log(cont1.saldo);
