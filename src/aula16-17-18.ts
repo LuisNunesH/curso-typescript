@@ -12,6 +12,22 @@ class Computador {
         console.log("Computador criado");        
     }
 
+    info():void{
+        console.log(`Nome: ${this.nome}`);
+        console.log(`RAM: ${this.ram}`);
+        console.log(`CPU: ${this.cpu}`);
+        console.log(`Ligado: ${this.ligado ? "Sim" : "Não"}`);
+        console.log('-------------------');
+    }
+
+    ligar():void{
+        this.ligado = true;
+    }
+
+    desligar():void{     
+        this.ligado = false;
+    }
+
 }
 
 
@@ -20,5 +36,8 @@ const comp1 = new Computador("Rápido", 64, 10);
 const comp2 = new Computador("Gamer", 32, 5);
 const comp3 = new Computador("Caro", 128, 10);
 
-console.log(comp1.nome);
-console.log(comp2.nome);
+comp1.ligar();
+
+comp1.info();
+comp2.info();
+comp3.info();
