@@ -42,6 +42,7 @@ class Conta {
     }
 }
 class ContaPF extends Conta {
+    taxaCalculo = 10;
     cpf;
     constructor(cpf, titular) {
         super(titular);
@@ -69,6 +70,10 @@ class ContaPF extends Conta {
             super.saque(valor);
         }
     }
+    CalcularTrib(valor) {
+        return valor * this.taxaCalculo;
+    }
+    ;
 }
 class ContaPJ extends Conta {
     cnpj;

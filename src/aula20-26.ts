@@ -47,7 +47,13 @@ abstract class Conta{
     }
 }
 
-class ContaPF extends Conta{
+interface Tributos{
+    taxaCalculo:number;
+    CalcularTrib(valor:number):number;
+}
+
+class ContaPF extends Conta implements Tributos{
+    taxaCalculo = 10;
     cpf: number;
     constructor(cpf:number, titular:string){
         super(titular);
@@ -73,6 +79,9 @@ class ContaPF extends Conta{
             super.saque(valor)
         }
     }
+    CalcularTrib(valor:number):number{
+        return valor * this.taxaCalculo;
+    };
 }
 
 class ContaPJ extends Conta{
