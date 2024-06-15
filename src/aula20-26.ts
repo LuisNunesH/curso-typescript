@@ -1,5 +1,5 @@
-class Conta{
-    protected numero:number;
+abstract class Conta{
+    private readonly numero:number;
     protected titular:string;
     protected saldoconta:number;
 
@@ -105,6 +105,7 @@ class ContaPJ extends Conta{
 
 const cont1 = new ContaPF(111, "Luis");
 const cont2 = new ContaPJ(222333, "Henrique");
+// const cont3 = new Conta("Luis123");
 
 // console.log(cont1.titular);
 // console.log(cont1.numero);
@@ -114,5 +115,5 @@ cont1.info();
 cont2.info();
 cont2.deposito(1500);
 cont1.saque(300);
-cont1.saldo = 233;
-console.log(cont1.saldo);
+// cont1.saldo = 233;
+// console.log(cont1.saldo);
