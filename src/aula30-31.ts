@@ -1,4 +1,4 @@
-import { Pessoa } from "./Classes";
+import Pessoa, { Objeto } from "./Classes";
 
 const p1 = new Pessoa("Luis", 1.8);
 
