@@ -5,7 +5,7 @@ namespace Veiculos{
         motor:Motores.Motor;
         constructor(nome:string){
             this.nome = nome;
-            this.motor = new Motores.Motor(100);
+            this.motor = new Motores.Motor(3, 100);
         }
     }
 
@@ -15,18 +15,33 @@ namespace Motores{
 
     class Turbo{
 
-        pot:number;
+        private pot:number;
         constructor(pot:number){
             this.pot = pot;
+        }
+        get potencia(){
+            return this.pot;
         }
 
     }
 
     export class Motor{
-        pot:number;
-        constructor(pot:number){
-            this.pot = pot;
-
+        private ligado:boolean;
+        private cilindros:number;
+        private pot:number;
+        constructor(cilindros:number, pot:number, turbo?:Turbo){
+            this.ligado = false;
+            this.cilindros = cilindros;
+            this.pot = pot + (turbo?turbo.potencia:0);
+        }
+        set liga(ligado:boolean){
+            this.ligado = ligado;
+        }
+        get liga(){
+            return this.ligado;
+        }
+        get potencia{
+            return this.pot;
         }
     }
 
